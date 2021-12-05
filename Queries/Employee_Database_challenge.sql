@@ -47,10 +47,50 @@ WHERE de.to_date = '9999-01-01'
 AND birth_date BETWEEN '1965-01-01' AND '1965-12-31'
 ORDER BY emp_no;
 
---Two additional queries:
+--Two questions and two additional queries:
 --How many roles will need to be filled as the "silver tsunami" begins to make an impact?
 SELECT SUM(count)
 FROM retitring_titles;
 
 --Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees
 SELECT COUNT(emp_no) FROM mentorship_eligibilty;
+
+--To find departments that will see most retirements
+--First create a table that shows departments of employees who will be retiring
+SELECT u.emp_no, 
+	   u.first_name, 
+	   u.last_name, 
+	   u.title, 
+	   de.dept_no, 
+	   d.dept_name, 
+	   de.to_date
+INTO retiring_dept
+FROM unique_titles as u
+JOIN dept_emp as de
+ON u.emp_no = de.emp_no
+JOIN departments as d
+on de.dept_no = d.dept_no
+WHERE de.to_date = '9999-01-01';
+
+-- Then find number of retiring employees by department
+SELECT dept_name, COUNT(dept_name)
+INTO no_by_dept
+FROM retiring_dept
+GROUP BY dept_name;
+
+-- Finding mentors by department
+--First create a table to hold mentor info by department
+SELECT DISTINCT ON(me.emp_no) me.emp_no, me.title, de.dept_no, d.dept_name
+INTO mentor_info
+FROM mentorship_eligibilty as me
+JOIN dept_emp as de
+ON me.emp_no = de.emp_no
+JOIN departments as d
+ON de.dept_no = d.dept_no
+WHERE me.to_date = '9999-01-01';
+
+--Then find the number of mentors per department
+SELECT dept_name, COUNT(dept_name)
+INTO mentor_by_dept
+FROM mentor_info
+GROUP BY dept_name;
