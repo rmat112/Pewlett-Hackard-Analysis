@@ -16,12 +16,12 @@ A SQL query yeilding the results below is saved as
 * The Retirement Titles table is exported as retirement_titles.csv.<br/>
 [retirement_titles.csv](https://github.com/rmat112/Pewlett-Hackard-Analysis/blob/main/Data/retirement_titles.csv)
 
-* A query is written and executed to create a Unique Titles table that contains the employee number, first and last name, and most recent title. 
+* A query is written and executed to create a 'Unique Titles' table that contains the employee number, first and last name, and most recent title. 
 ![unique_titles](https://github.com/rmat112/Pewlett-Hackard-Analysis/blob/main/Resources/unique_titles.png)
 * The Unique Titles table is exported as unique_titles.csv.<br/>
 [unique_titles.csv](https://github.com/rmat112/Pewlett-Hackard-Analysis/blob/main/Data/unique_titles.csv)
 
-* A query is written and executed to create a Retiring Titles table that contains the number of titles filled by employees who are retiring. 
+* A query is written and executed to create a 'Retiring Titles' table that contains the number of titles filled by employees who are retiring. 
 ![retiring_titles](https://github.com/rmat112/Pewlett-Hackard-Analysis/blob/main/Resources/retiring_titles.png)
 * The Retiring Titles table is exported as retiring_titles.csv.<br/>
 [retiring_titles.csv](https://github.com/rmat112/Pewlett-Hackard-Analysis/blob/main/Data/retiring_titles.csv)
@@ -35,12 +35,20 @@ A SQL query yeilding the results below is saved as
 
 ## Summary
 
+* A query is written and executed to create a 'Retirement Titles' table. The Retirement Titles table is exported as a csv file.
+* A query is written and executed to create a 'Unique Titles' table that contains the employee number, first and last name, and most recent title. The Unique Titles table is exported as a csv file.
+* A query is written and executed to create a 'Retiring Titles' table that contains the number of titles filled by employees who are retiring. The Retiring Titles table is exported as a csv file.
+* A query is written and executed to create a Mentorship Eligibility table for current employees who were born in 1965. The Mentorship Eligibility table is exported as a csv file.
+
+#### Questions addressed
 1. How many roles will need to be filled as the "silver tsunami" begins to make an impact?<br/>
 Adding the count of titles that will be retiring from the 'retiring_titles' table we find that 90,398 roles will need to be filled.
+
 ![sum_retiring_titles](https://github.com/rmat112/Pewlett-Hackard-Analysis/blob/main/Resources/sum_retiring_titles.png)
 
 2. Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?<br/>
 No, there are only 1,549 employees who can mentor the next generation employees. This information was extracted from the mentorship table.
+
 ![no_of_mentors](https://github.com/rmat112/Pewlett-Hackard-Analysis/blob/main/Resources/no_of_mentors.png)
 
 #### Additional queries
